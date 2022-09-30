@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, render_template,session
 from pytube import YouTube
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'KOCHENG'
 
 @app.route("/", methods = ['GET','POST'])
 def home():
@@ -16,8 +17,7 @@ def home():
             url.check_availability()
         except:
             return render_template('error.html')
-
-        return render_template('download.html',url=url)
+        return render_template('download.html')
     return render_template('home.html')
 
 
