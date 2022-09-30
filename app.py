@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 @app.route("/", methods = ['GET','POST'])
 def home():
-    if request.method == "POST":
+    if request.method == 'POST':
         #session
-        session["link"] = request.form.get('url')
+        session['link'] = request.form.get('url')
         # check if the link is valid or not
         try :
             url = YouTube(session['link'])
